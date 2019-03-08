@@ -37,6 +37,8 @@ namespace Reproductor
         VolumeSampleProvider volume;
 
         bool draggin = false;
+
+        Delay  delay;
         
         
 		public MainWindow()
@@ -103,6 +105,10 @@ namespace Reproductor
             else
             {
                 reader = new AudioFileReader(txtRutaArchivo.Text);
+
+                delay = new Delay(reader);
+                
+                    
                 output = new WaveOutEvent();
 
                 output.DeviceNumber = cbSalida.SelectedIndex;
